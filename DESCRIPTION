@@ -1,0 +1,9 @@
+Package: GLMr
+Type: Package
+Title: A GLM model base package
+Version: 0.1
+Date: 2014-09-29
+Author: Luke Winslow, Jordan Read
+Maintainer: Luke Winslow <lwinslow@usgs.gov>
+Description: A wrapper for the distribution and 
+License: LICENSE file
