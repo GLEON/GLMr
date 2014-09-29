@@ -64,7 +64,7 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 
 
 run_glmOSx <- function(sim_folder, verbose = TRUE){
-  glm_path <- system.file('extdata/sim/glm', package=getPackageName())
+  glm_path <- system.file('extbin/macGLM/glm', package=getPackageName())
   origin <- getwd()
   setwd(sim_folder)
 
