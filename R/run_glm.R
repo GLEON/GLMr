@@ -8,7 +8,6 @@
 #'@param verbose should output of GLM be shown
 #'
 #'@keywords methods
-#'@seealso \link{compare_to_field}, \link{resample_to_field}, \link{read_nml}, \link{get_metrics}
 #'@author
 #'Jordan Read, Luke Winslow
 #'@examples 
