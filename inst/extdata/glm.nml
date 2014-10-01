@@ -49,12 +49,10 @@
    lake_name  = 'Mendota'
    latitude   = 43
    longitude  = -89
-   base_elev  = 375.01
-   crest_elev = 400
    bsn_len    = 3.9581e+07
    bsn_wid    = 1.9791e+07
    bsn_vals   = 15
-   !   H(m)  A(m2 * 1000) V(m3 * 1000)
+   !   H(m)  A(m2 * 1000) 
    H = 375.00640,376.79166,378.57691,380.36217,382.14743,383.93269,385.71794,387.50320,389.28846,391.07371,392.85897,394.64423,396.42949,398.21474,400.00000,
    A = 0.00000,2827.22639,5654.45279,8481.67918,11308.90558,14136.13197,16963.35837,19790.58476,22617.81116,25445.03755,28272.26395,31099.49034,33926.71674,36753.94313,39581.16952,
 /
@@ -180,13 +178,13 @@
 !
 !-------------------------------------------------------------------------------
 &inflow
-   num_inflows    = 3
-   names_of_strms = 'Yahara','Pheasant','SpringHarbor'
+   num_inflows    = 0
+   names_of_strms = ''
    strm_hf_angle  = 65.0
    strmbd_slope   = 0.11
    strmbd_drag    = 0.0160
    inflow_factor = 0.10
-   inflow_fl      = 'Mendota_yahara.csv','Mendota_pheasant.csv','Mendota_springharbor.csv'
+   inflow_fl      = ''
    inflow_varnum  = 2
    inflow_vars    = 'FLOW','TEMP'
 /
@@ -204,7 +202,7 @@
 !
 !-------------------------------------------------------------------------------
 &outflow
-   num_outlet   = 1
+   num_outlet   = 0
    flt_off_sw   = .false.
    outl_elvs    = 386
    bsn_len_outl = 799
