@@ -60,7 +60,7 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 	
 	tryCatch({
 		if (verbose){
-			out <- system2(glm_path, wait = TRUE, stdout = stdout, stderr = stderr)
+			out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
 		} else {
 			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
 		}
@@ -79,7 +79,8 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
 
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = stdout, stderr = stderr)
+      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+      
     } else {
       out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
     }
