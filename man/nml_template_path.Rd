@@ -10,7 +10,7 @@ The NML file can change with updated versions of GLM. This returns a path to a v
 NML template file matching the current GLM version.
 }
 \examples{
-nml_template_path()
+edit(file=nml_template_path())
 }
 \author{
 Luke Winslow, Jordan Read
