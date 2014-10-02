@@ -38,12 +38,12 @@ run_glm <- function(sim_folder, verbose=TRUE){
 							"Windows GLM only supports 64-bit. This may cause issues.")
 		}
 		
-		run_glmWin(sim_folder, verbose)
+		return(run_glmWin(sim_folder, verbose))
 		
 	}else if(.Platform$pkgType == "mac.binary" || 
 					 	.Platform$pkgType == "mac.binary.mavericks"){
 		
-		run_glmOSx(sim_folder, verbose)
+		return(run_glmOSx(sim_folder, verbose))
 		
 	}else if(.Platform$pkgType == "source"){
 		## Probably running linux
@@ -65,6 +65,7 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
 		}
 		setwd(origin)
+		return(out)
 	}, error = function(err) {
 		print(paste("GLM_ERROR:  ",err))
 		setwd(origin)
@@ -85,6 +86,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
       out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
     }
     setwd(origin)
+	return(out)
   }, error = function(err) {
     print(paste("GLM_ERROR:  ",err))
     setwd(origin)
