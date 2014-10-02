@@ -1,10 +1,15 @@
-#'@title run GLM on a mac
+#'@title run the GLM model
+#'
+#'@description
+#'This runs the GLM model on the specific simulation stored in \code{sim_folder}. 
+#'The specified \code{sim_folder} must contain a valid NML file.
+#'
 #'@param sim_folder the directory where simulation files are contained
 #'@param verbose should output of GLM be shown
+#'
 #'@keywords methods
-#'@seealso \link{compare_to_field}, \link{resample_to_field}, \link{read_nml}, \link{get_metrics}
 #'@author
-#'Jordan S. Read
+#'Jordan Read, Luke Winslow
 #'@examples 
 #'\dontrun{
 #'library(glmtools)
@@ -22,6 +27,10 @@
 #'@export
 run_glm <- function(sim_folder, verbose=TRUE){
 	
+	if(!file.exists(file.path(sim_folder, 'glm.nml'))){
+		stop('You must have a valid glm.nml file in your sim_folder: ', sim_folder)
+	}
+	
 	#Just going to brute force this at the moment.
 	if(.Platform$pkgType == "win.binary"){
 		if(.Platform$r_arch != "x64"){
@@ -38,7 +47,7 @@ run_glm <- function(sim_folder, verbose=TRUE){
 		
 	}else if(.Platform$pkgType == "source"){
 		## Probably running linux
-		stop("Currently UNIX is not supported by GLMr")
+		stop("Currently UNIX is not supported by ", getPackageName())
 	}
 	
 }
@@ -51,7 +60,7 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 	
 	tryCatch({
 		if (verbose){
-			out <- system2(glm_path, wait = TRUE, stdout = stdout, stderr = stderr)
+			out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
 		} else {
 			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
 		}
@@ -64,13 +73,14 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 
 
 run_glmOSx <- function(sim_folder, verbose = TRUE){
-  glm_path <- system.file('extdata/sim/glm', package=getPackageName())
+  glm_path <- system.file('extbin/macGLM/glm', package=getPackageName())
   origin <- getwd()
   setwd(sim_folder)
 
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = stdout, stderr = stderr)
+      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+      
     } else {
       out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
     }
