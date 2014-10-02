@@ -46,7 +46,7 @@
 !
 !-------------------------------------------------------------------------------
 &morphometry
-   lake_name  = 'Mendota'
+   lake_name  = 'Lake'
    latitude   = 43
    longitude  = -89
    bsn_len    = 3.9581e+07
