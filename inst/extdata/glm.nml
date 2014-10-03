@@ -18,10 +18,10 @@
    min_layer_thick = 0.1
    max_layer_thick = 1.0
    Kw = 1.0268
-   coef_inf_entrain = 0.
-   coef_mix_conv = 0.21
+   coef_inf_entrain = 0
+   coef_mix_conv = 0.23
    coef_wind_stir = .23      
-   coef_mix_shear = 0.25       
+   coef_mix_shear = 0.3
    coef_mix_turb = 0.51       
    coef_mix_KH = 0.3 
 /
@@ -46,7 +46,7 @@
 !
 !-------------------------------------------------------------------------------
 &morphometry
-   lake_name  = 'Mendota'
+   lake_name  = 'Lake'
    latitude   = 43
    longitude  = -89
    bsn_len    = 3.9581e+07
@@ -88,7 +88,7 @@
    timefmt = 2
    start = '2008-01-01 00:00:00'
    stop  = '2012-06-15 00:00:00'
-   dt = 3600
+   dt = 86400
 
 /
 
@@ -117,8 +117,7 @@
    out_dir = '.'
    out_fn = 'output'
    out_lkn = .false.
-   nsave = 24
-
+   nsave = 1
    csv_point_nlevs = 2
    csv_point_fname = 'tempZ_'
    csv_point_at = 2., 1.
@@ -184,7 +183,7 @@
    strm_hf_angle  = 65.0
    strmbd_slope   = 0.11
    strmbd_drag    = 0.0160
-   inflow_factor = 0.10
+   inflow_factor = 1
    inflow_fl      = ''
    inflow_varnum  = 2
    inflow_vars    = 'FLOW','TEMP'
@@ -209,6 +208,6 @@
    bsn_len_outl = 799
    bsn_wid_outl = 398
    outflow_fl   = 'outflow.csv'
-   outflow_factor = .10 ! off by order of magnitude?
+   outflow_factor = 1
 /
 
