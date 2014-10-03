@@ -101,6 +101,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
 	return(out)
   }, error = function(err) {
     print(paste("GLM_ERROR:  ",err))
+    file.remove(glm_files)
     setwd(origin)
   })
 }
