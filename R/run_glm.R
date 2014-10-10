@@ -78,14 +78,16 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
   lib_path <- system.file('extbin/macGLM/bin', package=getPackageName())
   glm_files <- dir(lib_path)
   glm_fp <- file.path(lib_path, glm_files)
-  glm_path <- file.path(sim_folder,'glm')
+  glm_path <- file.path(lib_path, 'glm')
   
   # ship glm and libs to sim_folder
-  file_status <- file.copy(from=glm_fp, to=sim_folder, overwrite = TRUE, copy.mode = TRUE)
+  Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=system.file('extbin/macGLM/bin', package=getPackageName()))
+  
+  #file_status <- file.copy(from=glm_fp, to=sim_folder, overwrite = TRUE, copy.mode = TRUE)
   # fail here if status fails
-  if (any(!file_status)){
-    stop(paste0("run_glm failed to copy model libraries to user's OSx directory: ",sim_folder))
-  }
+  #if (any(!file_status)){
+  #  stop(paste0("run_glm failed to copy model libraries to user's OSx directory: ",sim_folder))
+  #}
   
   origin <- getwd()
   setwd(sim_folder)
@@ -97,12 +99,12 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
     } else {
       out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
     }
-    file.remove(glm_files)
+    #file.remove(glm_files)
     setwd(origin)
 	return(out)
   }, error = function(err) {
     print(paste("GLM_ERROR:  ",err))
-    file.remove(glm_files)
+    #file.remove(glm_files)
     setwd(origin)
   })
 }
