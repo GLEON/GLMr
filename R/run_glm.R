@@ -47,7 +47,8 @@ run_glm <- function(sim_folder, verbose=TRUE){
 		
 	}else if(.Platform$pkgType == "source"){
 		## Probably running linux
-		stop("Currently UNIX is not supported by ", getPackageName())
+	  return(run_glmNIX(sim_folder, verbose))
+		#stop("Currently UNIX is not supported by ", getPackageName())
 	}
 	
 }
@@ -102,6 +103,26 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
   }, error = function(err) {
     print(paste("GLM_ERROR:  ",err))
     file.remove(glm_files)
+    setwd(origin)
+  })
+}
+
+run_glmNIX = function(sim_folder, verbose=TRUE){
+  glm_path <- system.file('extbin/nixGLM/glm', package=getPackageName())
+  origin <- getwd()
+  setwd(sim_folder)
+  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', package=getPackageName()))
+  
+  tryCatch({
+    if (verbose){
+      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+    } else {
+      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
+    }
+    setwd(origin)
+    return(out)
+  }, error = function(err) {
+    print(paste("GLM_ERROR:  ",err))
     setwd(origin)
   })
 }
