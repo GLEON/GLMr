@@ -78,9 +78,11 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
   lib_path <- system.file('extbin/macGLM/bin', package=getPackageName())
   glm_files <- dir(lib_path)
   glm_fp <- file.path(lib_path, glm_files)
-  glm_path <- file.path(sim_folder,'glm')
+  glm_path <- file.path(path.expand(sim_folder), 'glm')
   
   # ship glm and libs to sim_folder
+  #Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=system.file('extbin/macGLM/bin', package=getPackageName()))
+  
   file_status <- file.copy(from=glm_fp, to=sim_folder, overwrite = TRUE, copy.mode = TRUE)
   # fail here if status fails
   if (any(!file_status)){
