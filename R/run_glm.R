@@ -13,7 +13,7 @@
 #'@examples 
 #'\dontrun{
 #'library(glmtools)
-#'sim_folder <- system.file('extdata/sim/', package = 'GLMr')
+#'sim_folder <- system.file('extdata/sim', package = 'GLMr')
 #'run_glm(sim_folder)
 #'out_file <- file.path(sim_folder,'output.nc')
 #'nml_file <- system.file('extdata/sim', 'glm.nml', package = 'GLMr')
