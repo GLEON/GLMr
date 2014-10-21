@@ -1,0 +1,10 @@
+citHeader("To cite GLM in publications use:")
+citEntry(entry = "Article", 
+    author = personList(as.person("Matthey R. Hipsey"), 
+        as.person("Louise C. Bruce"),
+        as.person("David P. Hamilton")), title = "GLM General Lake Model. Model Overview and User Information", 
+    journal = "The University of Western Australia Technical Manual, Perth, Australia", year = 2013, 
+    textVersion = paste("Hipsey, M.R., Bruce, L.C., Hamilton, D.P., 2013.", 
+        "GLM General Lake Model. Model Overview and User Information.", 
+        "The University of Western Australia Technical Manual, Perth, Australia."))
+citFooter("As GLM changes, this package will change with it, and the citation may change too. Find GLM version with 'glm_version()'.")
