@@ -19,9 +19,7 @@
 #'nml_file <- system.file('extdata/sim', 'glm.nml', package = 'GLMr')
 #'field_file <- system.file('extdata', 'field_data.tsv', package = 'GLMr')
 #'plot_temp(file = out_file, fig_path = 'test_temp.png')
-#'model_diagnostics(out_file, field_file, nml_file = nml_file,
-#'    metrics = c('thermo.depth', 'schmidt.stability'),
-#'    fig_path = FALSE)
+#'summarize_sim(out_file, sim_outputs = c('temp','surface_height','wind'))
 #'
 #' }
 #'@export
