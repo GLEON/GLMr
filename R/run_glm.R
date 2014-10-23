@@ -31,10 +31,6 @@ run_glm <- function(sim_folder, verbose=TRUE){
 	
 	#Just going to brute force this at the moment.
 	if(.Platform$pkgType == "win.binary"){
-		if(.Platform$r_arch != "x64"){
-			warning("You are running a 32-bit version of R.", 
-							"Windows GLM only supports 64-bit. This may cause issues.")
-		}
 		
 		return(run_glmWin(sim_folder, verbose))
 		
@@ -53,7 +49,13 @@ run_glm <- function(sim_folder, verbose=TRUE){
 
 
 run_glmWin <- function(sim_folder, verbose = TRUE){
-	glm_path <- system.file('extbin/winGLM/glm.exe', package=getPackageName())
+	
+	if(.Platform$r_arch == 'i386'){
+		glm_path <- system.file('extbin/win32GLM/glm.exe', package=getPackageName())
+	}else{
+		glm_path <- system.file('extbin/winGLM/glm.exe', package=getPackageName())
+	}
+	
 	origin <- getwd()
 	setwd(sim_folder)
 	
