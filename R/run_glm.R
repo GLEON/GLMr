@@ -76,12 +76,12 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 
 run_glmOSx <- function(sim_folder, verbose = TRUE){
   lib_path <- system.file('extbin/macGLM/bin', package=getPackageName())
-  glm_files <- dir(lib_path)
+  
   glm_fp <- file.path(lib_path, glm_files)
-  glm_path <- file.path(lib_path, 'glm')
+  glm_path <- system.file('exec/macglm', package=getPackageName())
   
   # ship glm and libs to sim_folder
-  Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=system.file('extbin/macGLM/bin', package=getPackageName()))
+  Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
   
   #file_status <- file.copy(from=glm_fp, to=sim_folder, overwrite = TRUE, copy.mode = TRUE)
   # fail here if status fails
@@ -99,7 +99,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
     } else {
       out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
     }
-    #file.remove(glm_files)
+    
     setwd(origin)
 	return(out)
   }, error = function(err) {
@@ -110,7 +110,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
 }
 
 run_glmNIX = function(sim_folder, verbose=TRUE){
-  glm_path <- system.file('extbin/nixGLM/glm', package=getPackageName())
+  glm_path <- system.file('exec/nixglm', package=getPackageName())
   origin <- getwd()
   setwd(sim_folder)
   Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', package=getPackageName()))
