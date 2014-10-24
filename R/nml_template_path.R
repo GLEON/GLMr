@@ -9,8 +9,9 @@
 #'@author
 #'Luke Winslow, Jordan Read
 #'@examples 
-#' edit(file=nml_template_path())
-#'
+#'\dontrun{
+#' file.edit(nml_template_path())
+#'}
 #'
 #'@export
 nml_template_path <- function(){
