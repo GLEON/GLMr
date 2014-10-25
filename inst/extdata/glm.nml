@@ -88,7 +88,7 @@
    timefmt = 2
    start = '2008-01-01 00:00:00'
    stop  = '2012-06-15 00:00:00'
-   dt = 86400
+   dt = 3600
 
 /
 
@@ -117,7 +117,7 @@
    out_dir = '.'
    out_fn = 'output'
    out_lkn = .false.
-   nsave = 1
+   nsave = 24
    csv_point_nlevs = 2
    csv_point_fname = 'tempZ_'
    csv_point_at = 2., 1.
@@ -157,7 +157,7 @@
    rain_sw    = .false.
    snow_sw    = .true.
    atm_stab   = .true.
-   subdaily   = .true.
+   subdaily   = .false.
    meteo_fl   = 'Mendota_hourly.csv'
    wind_factor = 1.0
    ce         = 0.0018
