@@ -37,9 +37,9 @@ run_glm <- function(sim_folder, verbose=TRUE){
 	}else if(.Platform$pkgType == "mac.binary" || 
 					 	.Platform$pkgType == "mac.binary.mavericks"){
     maj_v_number <- as.numeric(strsplit(Sys.info()["release"][[1]],'.', fixed = T)[[1]][1])
-    #if (maj_v_number < 13.0){
-    #  stop('pre-mavericks mac OSX is not supported. Consider upgrading')
-    #}
+    if (maj_v_number < 13.0){
+      stop('pre-mavericks mac OSX is not supported. Consider upgrading')
+    }
 		
 		return(run_glmOSx(sim_folder, verbose))
 		
