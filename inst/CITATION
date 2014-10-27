@@ -1,6 +1,6 @@
 citHeader("To cite GLM in publications use:")
 citEntry(entry = "Article", 
-    author = personList(as.person("Matthey R. Hipsey"), 
+    author = personList(as.person("Matthew R. Hipsey"), 
         as.person("Louise C. Bruce"),
         as.person("David P. Hamilton")), title = "GLM General Lake Model. Model Overview and User Information", 
     journal = "The University of Western Australia Technical Manual, Perth, Australia", year = 2013, 
