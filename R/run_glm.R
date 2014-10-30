@@ -13,10 +13,10 @@
 #'@examples 
 #'\dontrun{
 #'library(glmtools)
-#'sim_folder <- system.file('extdata/sim', package = 'GLMr')
+#'sim_folder <- system.file('extdata/v2.0.0sim', package = 'GLMr')
 #'run_glm(sim_folder)
 #'out_file <- file.path(sim_folder,'output.nc')
-#'nml_file <- system.file('extdata/sim', 'glm.nml', package = 'GLMr')
+#'nml_file <- system.file('extdata/v2.0.0sim', 'glm2.nml', package = 'GLMr')
 #'field_file <- system.file('extdata', 'field_data.tsv', package = 'GLMr')
 #'plot_temp(file = out_file, fig_path = 'test_temp.png')
 #'summarize_sim(out_file, sim_outputs = c('temp','surface_height','wind'))
