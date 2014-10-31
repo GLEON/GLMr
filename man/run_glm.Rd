@@ -3,7 +3,7 @@
 \alias{run_glm}
 \title{run the GLM model}
 \usage{
-run_glm(sim_folder, verbose = TRUE)
+run_glm(sim_folder = ".", verbose = TRUE)
 }
 \arguments{
 \item{sim_folder}{the directory where simulation files are contained}
