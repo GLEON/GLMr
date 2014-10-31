@@ -23,7 +23,7 @@
 #'
 #' }
 #'@export
-run_glm <- function(sim_folder, verbose=TRUE){
+run_glm <- function(sim_folder = '.', verbose=TRUE){
 	
 	if(!file.exists(file.path(sim_folder, 'glm2.nml'))){
 		stop('You must have a valid glm2.nml file in your sim_folder: ', sim_folder)
