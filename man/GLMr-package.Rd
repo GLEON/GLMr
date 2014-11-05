@@ -50,8 +50,8 @@ nml_template_path()
 
 #Prep
 sim_folder = tempdir()
-example_nml <- system.file('extdata/sim/glm.nml', package = 'GLMr')
-example_driver <- system.file('extdata/sim/Anvil_driver.csv', package = 'GLMr')
+example_nml <- system.file('extdata/v2.0.0sim', 'glm2.nml', package = 'GLMr')
+example_driver <- system.file('extdata/v2.0.0sim/met_hourly.csv', package = 'GLMr')
 
 
 #copy the MNL file
@@ -62,7 +62,7 @@ file.copy(example_driver, sim_folder)
 #run and visualize using glmtools
 run_glm(sim_folder)
 out_file <- file.path(sim_folder,'output.nc')
-nml_file <- system.file('extdata/sim', 'glm.nml', package = 'GLMr')
+nml_file <- system.file('extdata/v2.0.0sim', 'glm2.nml', package = 'GLMr')
 field_file <- system.file('extdata', 'field_data.tsv', package = 'GLMr')
 
 #run these only if we have glmtools available.
