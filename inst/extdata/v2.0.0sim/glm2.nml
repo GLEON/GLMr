@@ -223,7 +223,7 @@
                      'temp',
                      'salt',
                      'OXY_oxy',
-   csv_ovrflw_fname = "overflow"
+   csv_ovrflw_fname = 'overflow'
 /
 
 !-------------------------------------------------------------------------------
