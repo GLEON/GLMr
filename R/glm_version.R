@@ -13,5 +13,5 @@
 #'
 #'@export
 glm_version <- function(){
-	return(packageVersion(getPackageName()))
+	run_glm(dirname(nml_template_path()), verbose=TRUE, args='--help')
 }

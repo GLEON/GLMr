@@ -6,6 +6,7 @@
 #'
 #'@param sim_folder the directory where simulation files are contained
 #'@param verbose should output of GLM be shown
+#'@param args Optional arguments to pass to GLM executable
 #'
 #'@keywords methods
 #'@author
@@ -23,7 +24,7 @@
 #'
 #' }
 #'@export
-run_glm <- function(sim_folder = '.', verbose=TRUE){
+run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 	
 	if(!file.exists(file.path(sim_folder, 'glm2.nml'))){
 		stop('You must have a valid glm2.nml file in your sim_folder: ', sim_folder)
@@ -32,7 +33,7 @@ run_glm <- function(sim_folder = '.', verbose=TRUE){
 	#Just going to brute force this at the moment.
 	if(.Platform$pkgType == "win.binary"){
 		
-		return(run_glmWin(sim_folder, verbose))
+		return(run_glmWin(sim_folder, verbose, args))
 		
 	}else if(.Platform$pkgType == "mac.binary" || 
 					 	.Platform$pkgType == "mac.binary.mavericks"){
@@ -41,18 +42,18 @@ run_glm <- function(sim_folder = '.', verbose=TRUE){
       stop('pre-mavericks mac OSX is not supported. Consider upgrading')
     }
 		
-		return(run_glmOSx(sim_folder, verbose))
+		return(run_glmOSx(sim_folder, verbose, args))
 		
 	}else if(.Platform$pkgType == "source"){
 		## Probably running linux
-	  return(run_glmNIX(sim_folder, verbose))
+	  return(run_glmNIX(sim_folder, verbose, args))
 		#stop("Currently UNIX is not supported by ", getPackageName())
 	}
 	
 }
 
 
-run_glmWin <- function(sim_folder, verbose = TRUE){
+run_glmWin <- function(sim_folder, verbose = TRUE, args){
 	
 	if(.Platform$r_arch == 'i386'){
 		glm_path <- system.file('extbin/win32GLM/glm.exe', package=getPackageName())
@@ -65,9 +66,9 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 	
 	tryCatch({
 		if (verbose){
-			out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+			out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
 		} else {
-			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
+			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
 		}
 		setwd(origin)
 		return(out)
@@ -78,7 +79,7 @@ run_glmWin <- function(sim_folder, verbose = TRUE){
 }
 
 
-run_glmOSx <- function(sim_folder, verbose = TRUE){
+run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   lib_path <- system.file('extbin/macGLM/bin', package=getPackageName())
   
   glm_path <- system.file('exec/macglm', package=getPackageName())
@@ -91,10 +92,10 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
 
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
       
     } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
+      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
     }
     
     setwd(origin)
@@ -106,7 +107,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE){
   })
 }
 
-run_glmNIX = function(sim_folder, verbose=TRUE){
+run_glmNIX = function(sim_folder, verbose=TRUE, args){
   glm_path <- system.file('exec/nixglm', package=getPackageName())
   origin <- getwd()
   setwd(sim_folder)
@@ -114,9 +115,9 @@ run_glmNIX = function(sim_folder, verbose=TRUE){
   
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "")
+      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
     } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL)
+      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
     }
     setwd(origin)
     return(out)
