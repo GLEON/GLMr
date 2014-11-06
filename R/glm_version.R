@@ -1,3 +1,4 @@
+
 #'@title Return the current GLM model version 
 #'
 #'@description 
@@ -13,10 +14,5 @@
 #'
 #'@export
 glm_version <- function(){
-  # them{2.0.0.4}.{us}
-  pkg_version_lst <- as.character(packageVersion(getPackageName())[[1]])
-  pkg_version <- strsplit(pkg_version_lst, '.', fixed = T)[[1]]
-  num_elm <- length(pkg_version)
-  GLM_version <- paste(head(pkg_version,num_elm-1), collapse='.')
-	return(GLM_version)
+	run_glm(dirname(nml_template_path()), verbose=TRUE, args='--help')
 }

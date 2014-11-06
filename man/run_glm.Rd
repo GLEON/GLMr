@@ -3,12 +3,14 @@
 \alias{run_glm}
 \title{run the GLM model}
 \usage{
-run_glm(sim_folder = ".", verbose = TRUE)
+run_glm(sim_folder = ".", verbose = TRUE, args = character())
 }
 \arguments{
 \item{sim_folder}{the directory where simulation files are contained}
 
 \item{verbose}{should output of GLM be shown}
+
+\item{args}{Optional arguments to pass to GLM executable}
 }
 \description{
 This runs the GLM model on the specific simulation stored in \code{sim_folder}.
