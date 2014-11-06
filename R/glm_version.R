@@ -13,5 +13,10 @@
 #'
 #'@export
 glm_version <- function(){
-	return(packageVersion(getPackageName()))
+  # them{2.0.0.4}.{us}
+  pkg_version_lst <- as.character(packageVersion(getPackageName())[[1]])
+  pkg_version <- strsplit(pkg_version_lst, '.', fixed = T)[[1]]
+  num_elm <- length(pkg_version)
+  GLM_version <- paste(head(pkg_version,num_elm-1), collapse='.')
+	return(GLM_version)
 }
