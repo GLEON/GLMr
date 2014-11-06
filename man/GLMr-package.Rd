@@ -12,7 +12,7 @@ This package is a handy
 \tabular{ll}{
 Package: \tab GLMr\cr
 Type: \tab Package\cr
-Version: \tab 1.4\cr
+Version: \tab 2.0.0.4\cr
 Date: \tab 2014-09-29\cr
 License: \tab GPL 3.0\cr
 }
