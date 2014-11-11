@@ -108,10 +108,10 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
 }
 
 run_glmNIX = function(sim_folder, verbose=TRUE, args){
-  glm_path <- system.file('exec/nixglm', package=getPackageName())
+  glm_path <- system.file('exec/nixglm', package=packageName())
   origin <- getwd()
   setwd(sim_folder)
-  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', package=getPackageName()))
+  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', package=packageName()))
   
   tryCatch({
     if (verbose){
