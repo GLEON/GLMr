@@ -7,5 +7,5 @@ Author: Luke A. Winslow, Jordan S. Read
 Maintainer: Luke Winslow <lwinslow@usgs.gov>
 Description: A wrapper for the distribution and running of GLM
 License: file LICENSE
-Suggests:
+Enhances:
     glmtools
