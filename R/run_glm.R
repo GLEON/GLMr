@@ -56,9 +56,9 @@ run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 run_glmWin <- function(sim_folder, verbose = TRUE, args){
 	
 	if(.Platform$r_arch == 'i386'){
-		glm_path <- system.file('extbin/win32GLM/glm.exe', package=getPackageName())
+		glm_path <- system.file('extbin/win32GLM/glm.exe', package=packageName())
 	}else{
-		glm_path <- system.file('extbin/winGLM/glm.exe', package=getPackageName())
+		glm_path <- system.file('extbin/winGLM/glm.exe', package=packageName())
 	}
 	
 	origin <- getwd()
@@ -80,9 +80,9 @@ run_glmWin <- function(sim_folder, verbose = TRUE, args){
 
 
 run_glmOSx <- function(sim_folder, verbose = TRUE, args){
-  lib_path <- system.file('extbin/macGLM/bin', package=getPackageName())
+  lib_path <- system.file('extbin/macGLM/bin', package=packageName())
   
-  glm_path <- system.file('exec/macglm', package=getPackageName())
+  glm_path <- system.file('exec/macglm', package=packageName())
   
   # ship glm and libs to sim_folder
   Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
