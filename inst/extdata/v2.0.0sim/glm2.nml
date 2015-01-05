@@ -160,8 +160,8 @@
 !-------------------------------------------------------------------------------
 &time
    timefmt  = 2
-   start    = '2000-01-01 00:00:00'
-   stop     = '2000-12-30 00:00:00'
+   start    = '2000-04-01 00:00:00'
+   stop     = '2000-08-30 00:00:00'
    dt       = 3600.0
    !num_days = 760
    timezone = 7.0
@@ -204,11 +204,11 @@
 &output
    out_dir = '.'
    out_fn = 'output'
-   nsave = 12
+   nsave = 24
    ! General summary file
    csv_lake_fname = 'lake'
    ! Depth specific outputs
-   csv_point_nlevs = 1
+   csv_point_nlevs = 0
    csv_point_fname = 'WQ_'
    csv_point_at = 17.
    csv_point_nvars = 2
