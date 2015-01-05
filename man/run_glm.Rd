@@ -17,16 +17,15 @@ This runs the GLM model on the specific simulation stored in \code{sim_folder}.
 The specified \code{sim_folder} must contain a valid NML file.
 }
 \examples{
-\dontrun{
 library(glmtools)
-sim_folder <- system.file('extdata/v2.0.0sim', package = 'GLMr')
+sim_folder <- system.file('extdata', package = 'GLMr')
 run_glm(sim_folder)
 out_file <- file.path(sim_folder,'output.nc')
-nml_file <- system.file('extdata/v2.0.0sim', 'glm2.nml', package = 'GLMr')
-field_file <- system.file('extdata', 'field_data.tsv', package = 'GLMr')
-plot_temp(file = out_file, fig_path = 'test_temp.png')
-summarize_sim(out_file, sim_outputs = c('temp','surface_height','wind'))
-
+nml_file <- system.file('extdata', 'glm2.nml', package = 'GLMr')
+\dontrun{
+fig_path <- tempfile("temperature", fileext = '.png')
+plot_temp(file = out_file, fig_path = fig_path)
+cat('find plot here: '); cat(fig_path)
 }
 }
 \author{
