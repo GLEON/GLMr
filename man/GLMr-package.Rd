@@ -51,7 +51,7 @@ nml_template_path()
 #Prep
 sim_folder = tempdir()
 example_nml <- system.file('extdata', 'glm2.nml', package = 'GLMr')
-example_driver <- system.file('extdata/met_hourly.csv', package = 'GLMr')
+example_driver <- system.file('extdata','met_hourly.csv', package = 'GLMr')
 
 
 #copy the MNL file
@@ -62,13 +62,10 @@ file.copy(example_driver, sim_folder)
 #run and visualize using glmtools
 run_glm(sim_folder)
 out_file <- file.path(sim_folder,'output.nc')
-nml_file <- system.file('extdata', 'glm2.nml', package = 'GLMr')
-field_file <- system.file('extdata', 'field_data.tsv', package = 'GLMr')
 
 #run these only if we have glmtools available.
 if(require(glmtools)){
-	plot_temp(file = out_file, fig_path = 'test_temp.png')
-	summarize_sim(out_file, sim_outputs = c('temp','surface_height','wind'))
+	plot_temp(file = out_file)
 }
 
 }
