@@ -15,5 +15,5 @@
 #'
 #'@export
 nml_template_path <- function(){
-	return(system.file('extdata/v2.0.0sim/glm2.nml', package=packageName()))
+	return(system.file('extdata/glm2.nml', package=packageName()))
 }
