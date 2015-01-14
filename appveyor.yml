@@ -15,7 +15,6 @@ install:
   ps: Bootstrap
 
 build_script:
-  - travis-tool.sh install_github USGS-R/glmtools
   - travis-tool.sh install_deps
 
 test_script:
