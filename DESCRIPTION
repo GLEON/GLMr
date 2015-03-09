@@ -1,10 +1,10 @@
 Package: GLMr
 Type: Package
-Title: A GLM model base package
-Version: 2.0.0.10.1
+Title: A General Lake Model (GLM) base package
+Version: 3.0.0
 Date: 2014-10-24
 Author: Luke A. Winslow, Jordan S. Read
 Maintainer: Luke Winslow <lwinslow@usgs.gov>
 Description: A wrapper for the distribution and running of GLM
-License: file LICENSE
+License: CC0
 Enhances: glmtools
