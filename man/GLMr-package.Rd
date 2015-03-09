@@ -6,7 +6,7 @@
 An R package containing the core GLM files for Mac, Windows, and Linux
 }
 \description{
-This package is a handy 
+This package is a handy wrapper for the General Lake Model. 
 }
 \details{
 \tabular{ll}{
