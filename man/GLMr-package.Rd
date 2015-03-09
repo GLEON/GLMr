@@ -37,9 +37,6 @@ Maintainer: Luke Winslow <lwinslow@usgs.gov>
 }
 
 \keyword{ package }
-\seealso{
-
-}
 \examples{
 #Get the current version of GLM
 glm_version()
