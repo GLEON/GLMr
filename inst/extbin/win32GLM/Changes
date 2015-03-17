@@ -1,3 +1,23 @@
+# 2015/03/10
+# Version 2.0.0
+#
+# -- Since 1.4.0
+#
+# Changed units to SI for flow in inflows and outflows [m3/s instead of ML/day]
+# Changed units to SI for Area in glm2.nml - morphometry [m2 not 1000m2]
+# Changed units to SI for Density (instead of 1000-dens) (internal)
+# Improved plotting routines
+# Updated to latest fabm (as at 20141205)
+# Changed the WQ array index order to accommodate the new FABM
+# Added atmospheric stability to surface calcs
+# Added bird model for solar radiation
+# Added layer stress, seepage and runoff
+# Added below surface inflows.
+# Selectable use of FABM-AED or AED2
+# Added support for libAED2 - this is the new default WQ method
+#  WQ is selectable from glm2.nml file or from command line as either fabm or aed2
+#
+#
 # 2014/08/02
 # Version 1.4.0
 #
