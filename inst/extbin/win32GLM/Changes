@@ -1,3 +1,37 @@
+# 2015/08/26
+# Version 2.0.4
+# -- Since 2.0.3
+#
+# LAW et al :
+# Fixed tracking of Snow Density
+# Fixed how the falling snow and existing snow densities were combined
+# Added additional diagnostic output to lake.csv
+# Cleaned up and fixed melting code where melt volumes were based on rho0 instead of ice densities
+# Improved tracking of ice/snow volumes and fluxes
+#
+# 2015/04/28
+# Version 2.0.3
+# -- Since 2.0.2
+#
+# Updates to organic_matter, totals and pathogens modules
+# Fix to not look for cloud/longwave for rad_modes 3 & 5
+#
+# 2015/04/28
+# Version 2.0.2
+#
+# -- Since 2.0.1
+#
+# Fixed hypolimnion mixing problem
+# Additional deep mixing options
+#
+# 2015/04/08
+# Version 2.0.1
+#
+# -- Since 2.0.0
+#
+# Added CH4 to carbon module in libaed2
+#
+#
 # 2015/03/10
 # Version 2.0.0
 #
@@ -43,7 +77,7 @@
 # Fixed a bug in initialization that crashed if there were more WQ variables in
 #    inflow that in FABM
 # Added support for different plots.nml file names - now if a name
-#   appears after the --xdisp (without a preceding --) then it is assumed to be 
+#   appears after the --xdisp (without a preceding --) then it is assumed to be
 #   a plots.nml filename and is used instead of the default.
 # Fixed a bug where surface flux was being added twice
 # Added support for fonts in plotting.
@@ -202,7 +236,7 @@
 #
 # remove base_elev and crest_elev from config
 # fixed bug in namelist reader where integers in a REAL list would not appear in the list
-# fixed bug where max layers was checked for validity before that was possible leading to crashes 
+# fixed bug where max layers was checked for validity before that was possible leading to crashes
 #   if the lake was deeper than maxlayers could allow.
 # fixed bug that would crash is lake was deeper than 100m.
 #
