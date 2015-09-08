@@ -421,3 +421,15 @@
 !  seepage_rate   = 0.0
 /
 
+!-------------------------------------------------------------------------------
+! outflows
+!-------------------------------------------------------------------------------
+!
+!  snow_albedo_factor  [float]   multiplier to snow albedo
+!  sed_heat_sw         [bool]    swtich to turn on Mendota sediment heat flux model
+!
+!-------------------------------------------------------------------------------
+&snowice
+   snow_albedo_factor = 1.1
+   sed_heat_sw = .false.
+/
