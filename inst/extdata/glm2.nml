@@ -421,3 +421,38 @@
 !  seepage_rate   = 0.0
 /
 
+!-------------------------------------------------------------------------------
+! snowice
+!-------------------------------------------------------------------------------
+!
+!  snow_albedo_factor  [float] multiplier to snow albedo
+!  snow_rho_max        [float] maximum snow density
+!  snow_rho_min        [float] minimum snow density 
+!
+!-------------------------------------------------------------------------------
+&snowice
+   snow_albedo_factor = 1.0
+   snow_rho_max       = 300
+   snow_rho_min       = 50
+/
+
+
+!-------------------------------------------------------------------------------
+! sed_heat
+!-------------------------------------------------------------------------------
+!  Sediment heating is turned off if  
+!
+!  sed_heat_sw         [bool]    swtich to turn on Mendota sediment heat flux model
+!  sed_temp_mean       [float]   average sediment temp (deg C)
+!  sed_temp_amplitude  [float]   sediment temperature annual amplitude (deg C)
+!  sed_temp_peak_doy   [float]   sediment temperature peak day of year (day, usually fall)
+!
+!-------------------------------------------------------------------------------
+&sed_heat
+   sed_temp_mean      = 9.7
+   sed_temp_amplitude = 2.7
+   sed_temp_peak_doy  = 242.5
+/
+
+
+
