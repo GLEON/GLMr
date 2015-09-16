@@ -1,0 +1,19 @@
+GLM v2.0.0 Release Notes
+
+The following major changes have been made that require the user to change
+their input files.
+
+1) GLM now reads a glm2.nml file with the following updates from glm.nml:
+    a) The Areas in the hypsographic curve (A under &morphometry in the
+       glm2.nml file) are now in m2 not 1000m2 so you will need to multiply
+       your areas by 1000.
+    b) The coefficient of wind drag, coef_wind_drag has been renamed cd.
+    c) The coefficient of inflow entrainment, coef_inf_entrain has been
+       moved to the &inflow section of glm2.nml.
+    d) The option to output lake number, out_lkn has been removed as it is
+       included as default output.
+
+2) The units for inflow input files have been changed from ML/day to m3/s, all
+   inflow files will need to be adjusted accordingly. 
+3) The units for outflow input files have been changed from ML/day to m3/s, all
+   outflow files will need to be adjusted accordingly.
