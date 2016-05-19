@@ -1,3 +1,14 @@
+# 2015/08/26
+# Version 2.0.4
+# -- Since 2.0.3
+#
+# LAW et al :
+# Fixed tracking of Snow Density
+# Fixed how the falling snow and existing snow densities were combined
+# Added additional diagnostic output to lake.csv
+# Cleaned up and fixed melting code where melt volumes were based on rho0 instead of ice densities
+# Improved tracking of ice/snow volumes and fluxes
+#
 # 2015/04/28
 # Version 2.0.3
 # -- Since 2.0.2

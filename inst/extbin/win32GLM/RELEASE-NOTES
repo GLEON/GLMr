@@ -1,3 +1,13 @@
+GLM v2.2.0alpha Non-Release Notes
+
+There have been many changes since 2.0.x many bug fixes and additions.
+
+There are new models in the aed2 water quality set - but some are currently not functional, and some are untested
+
+  sulfur, iron and sed-diagenesis are non-functional
+  geochemistry, vegetation and bivalves are not tested
+
+
 GLM v2.0.0 Release Notes
 
 The following major changes have been made that require the user to change
@@ -14,6 +24,6 @@ their input files.
        included as default output.
 
 2) The units for inflow input files have been changed from ML/day to m3/s, all
-   inflow files will need to be adjusted accordingly. 
+   inflow files will need to be adjusted accordingly.
 3) The units for outflow input files have been changed from ML/day to m3/s, all
    outflow files will need to be adjusted accordingly.
