@@ -297,7 +297,7 @@
    met_sw      = .true.
    lw_type     = 'LW_IN'
    rain_sw     = .false.
-   snow_sw     = .false.
+   !snow_sw     = .false.
    atm_stab    = .false.
    catchrain   = .false.
    rad_mode    = 1
