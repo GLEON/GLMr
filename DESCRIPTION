@@ -1,7 +1,7 @@
 Package: GLMr
 Type: Package
 Title: A General Lake Model (GLM) base package
-Version: 3.1.11
+Version: 3.1.12
 Date: 2015-08-26
 Author: Luke A. Winslow, Jordan S. Read
 Maintainer: Luke Winslow <lwinslow@usgs.gov>
