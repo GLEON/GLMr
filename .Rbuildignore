@@ -3,3 +3,5 @@
 .travis.yml
 appveyor.yml
 .gitignore
+^README\.Rmd$
+^images$
