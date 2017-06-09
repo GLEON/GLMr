@@ -20,4 +20,3 @@ file.edit(nml_template_path())
 Luke Winslow, Jordan Read
 }
 \keyword{methods}
-
