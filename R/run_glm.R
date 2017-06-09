@@ -23,6 +23,7 @@
 #'cat('find plot here: '); cat(fig_path)
 #' }
 #'@export
+#'@importFrom utils packageName
 run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 	
 	if(!file.exists(file.path(sim_folder, 'glm2.nml'))){

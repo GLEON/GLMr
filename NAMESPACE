@@ -3,3 +3,4 @@
 export(glm_version)
 export(nml_template_path)
 export(run_glm)
+importFrom(utils,packageName)
