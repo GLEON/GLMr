@@ -18,4 +18,3 @@ print(glm_version())
 Luke Winslow, Jordan Read
 }
 \keyword{methods}
-

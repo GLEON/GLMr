@@ -23,6 +23,7 @@
 #'cat('find plot here: '); cat(fig_path)
 #' }
 #'@export
+#'@importFrom utils packageName
 run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 	
 	if(!file.exists(file.path(sim_folder, 'glm2.nml'))){
@@ -36,7 +37,8 @@ run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 		
 	}else if(.Platform$pkgType == "mac.binary" || 
 					 	.Platform$pkgType == "mac.binary.mavericks"){
-    maj_v_number <- as.numeric(strsplit(Sys.info()["release"][[1]],'.', fixed = T)[[1]][1])
+    maj_v_number <- as.numeric(strsplit(
+                      Sys.info()["release"][[1]],'.', fixed = TRUE)[[1]][1])
     if (maj_v_number < 13.0){
       stop('pre-mavericks mac OSX is not supported. Consider upgrading')
     }
@@ -65,9 +67,11 @@ run_glmWin <- function(sim_folder, verbose = TRUE, args){
 	
 	tryCatch({
 		if (verbose){
-			out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
+			out <- system2(glm_path, wait = TRUE, stdout = "", 
+			               stderr = "", args=args)
 		} else {
-			out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
+			out <- system2(glm_path, wait = TRUE, stdout = NULL, 
+			               stderr = NULL, args=args)
 		}
 		setwd(origin)
 		return(out)
@@ -91,10 +95,12 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
 
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
+      out <- system2(glm_path, wait = TRUE, stdout = "", 
+                     stderr = "", args = args)
       
     } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
+      out <- system2(glm_path, wait = TRUE, stdout = NULL, 
+                     stderr = NULL, args=args)
     }
     
     setwd(origin)
@@ -106,17 +112,20 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   })
 }
 
-run_glmNIX = function(sim_folder, verbose=TRUE, args){
+run_glmNIX <- function(sim_folder, verbose=TRUE, args){
   glm_path <- system.file('exec/nixglm', package=packageName())
   origin <- getwd()
   setwd(sim_folder)
-  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', package=packageName()))
+  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixGLM', 
+                                         package=packageName()))
   
   tryCatch({
     if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", stderr = "", args=args)
+      out <- system2(glm_path, wait = TRUE, stdout = "", 
+                     stderr = "", args=args)
     } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, stderr = NULL, args=args)
+      out <- system2(glm_path, wait = TRUE, stdout = NULL, 
+                     stderr = NULL, args = args)
     }
     setwd(origin)
     return(out)

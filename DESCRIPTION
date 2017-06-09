@@ -1,11 +1,12 @@
 Package: GLMr
 Type: Package
 Title: A General Lake Model (GLM) base package
-Version: 3.1.14
-Date: 2015-08-26
+Version: 3.1.15
+URL: https://github.com/GLEON/GLMr
+BugReports: https://github.com/GLEON/GLMr/issues
 Author: Luke A. Winslow, Jordan S. Read
 Maintainer: Luke Winslow <lwinslow@usgs.gov>
-Description: A wrapper for the distribution and running of GLM
+Description: A wrapper for the distribution and running of the General Lake Model (GLM).
 License: CC0
 Enhances: glmtools
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
