@@ -9,4 +9,5 @@ Maintainer: Luke Winslow <lwinslow@usgs.gov>
 Description: A wrapper for the distribution and running of the General Lake Model (GLM).
 License: CC0
 Enhances: glmtools
+Suggests: testthat
 RoxygenNote: 6.0.1
