@@ -88,7 +88,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   glm_path <- system.file('exec/macglm', package=packageName())
   
   # ship glm and libs to sim_folder
-  Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
+  # Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
   
   origin <- getwd()
   setwd(sim_folder)
