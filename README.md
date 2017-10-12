@@ -3,9 +3,9 @@
 GLMr
 ====
 
-| Linux                                                                                                   | Mac                                                                                                     | Windows                                                                                                                                   |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| [![Build Status](https://travis-ci.org/GLEON/GLMr.svg?branch=master)](https://travis-ci.org/GLEON/GLMr) | [![Build Status](https://travis-ci.org/GLEON/GLMr.svg?branch=master)](https://travis-ci.org/GLEON/GLMr) | [![Build status](https://ci.appveyor.com/api/projects/status/uevfoyg53n6wk2bv?svg=true)](https://ci.appveyor.com/project/jread-usgs/glmr) |
+| Linux                                                                                                   | Windows                                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [![Build Status](https://travis-ci.org/GLEON/GLMr.svg?branch=master)](https://travis-ci.org/GLEON/GLMr) | [![Build status](https://ci.appveyor.com/api/projects/status/uevfoyg53n6wk2bv?svg=true)](https://ci.appveyor.com/project/jread-usgs/glmr) |
 
 [![DOI](https://zenodo.org/badge/23404/GLEON/GLMr.svg)](https://zenodo.org/badge/latestdoi/23404/GLEON/GLMr)
 
