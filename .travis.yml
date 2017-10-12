@@ -9,6 +9,10 @@ sudo: true
 
 warnings_are_errors: false
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get -y install libgd2-xpm-dev build-essential
+
 r:
   - oldrel
   - release
