@@ -35,7 +35,8 @@ run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 		
 		return(run_glmWin(sim_folder, verbose, args))
 		
-	}else if(length(grep("mac", .Platform$pkgType)) > 0){
+	}else if(.Platform$pkgType == "mac.binary" || 
+					 	.Platform$pkgType == "mac.binary.mavericks"){
     maj_v_number <- as.numeric(strsplit(
                       Sys.info()["release"][[1]],'.', fixed = TRUE)[[1]][1])
     if (maj_v_number < 13.0){
@@ -83,11 +84,11 @@ run_glmWin <- function(sim_folder, verbose = TRUE, args){
 
 run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   lib_path <- system.file('extbin/macGLM/bin', package=packageName())
-  
   glm_path <- system.file('exec/macglm', package=packageName())
   
   # ship glm and libs to sim_folder
-  # Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
+  remerge_binaries() # tries to remerge binaries; if they are
+                     # already merged, nothing occurs
   
   origin <- getwd()
   setwd(sim_folder)
