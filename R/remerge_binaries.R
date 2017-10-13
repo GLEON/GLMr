@@ -17,8 +17,12 @@ remerge_binaries <- function() {
       for (g in 1:length(files)) {
         system(paste0("install_name_tool -change ", "@executable_path/", 
                       files[g]," ", lib_path, files[g], " ", glm_path)) 
+        system(paste0("install_name_tool -change ", "/opt/local/lib/hdf5-18/", 
+                      files[g]," ", lib_path, files[g], " ", glm_path))
         for (h in 1:length(files)) {
           system(paste0("install_name_tool -change ", "@executable_path/", 
+                      files[h]," ", lib_path, files[h], " ", lib_path,"/", files[g]))
+          system(paste0("install_name_tool -change ", "/opt/local/lib/hdf5-18/", 
                       files[h]," ", lib_path, files[h], " ", lib_path,"/", files[g]))
         }
       }
