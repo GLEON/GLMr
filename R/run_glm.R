@@ -35,8 +35,7 @@ run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 		
 		return(run_glmWin(sim_folder, verbose, args))
 		
-	}else if(.Platform$pkgType == "mac.binary" || 
-					 	.Platform$pkgType == "mac.binary.mavericks"){
+	}else if(length(grep("mac", .Platform$pkgType, ignore.case = TRUE)) > 0){
     maj_v_number <- as.numeric(strsplit(
                       Sys.info()["release"][[1]],'.', fixed = TRUE)[[1]][1])
     if (maj_v_number < 13.0){
