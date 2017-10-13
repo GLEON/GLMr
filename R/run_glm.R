@@ -86,29 +86,36 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   glm_path <- system.file('exec/macglm', package=packageName())
   
   # ship glm and libs to sim_folder
-  remerge_binaries() # tries to remerge binaries; if they are
+  #remerge_binaries() # tries to remerge binaries; if they are
                      # already merged, nothing occurs
   
   origin <- getwd()
   setwd(sim_folder)
-
-  tryCatch({
-    if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", 
-                     stderr = "", args = args)
+  count = 1
+  
+  while (count < 2) {
+    tryCatch({
+      if (verbose){
+        out <- system2(glm_path, wait = TRUE, stdout = "", 
+                       stderr = "", args = args)
+        
+      } else {
+        out <- system2(glm_path, wait = TRUE, stdout = NULL, 
+                       stderr = NULL, args=args)
+      }
       
-    } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, 
-                     stderr = NULL, args=args)
+      setwd(origin)
+      return(out)
+    }, error = function(err) {
+      print(paste("GLM_ERROR:  ",err))
+      
+      setwd(origin)
+    })
+    if (count == 1) {
+      try(remerge_binaries(), silent = TRUE)
     }
-    
-    setwd(origin)
-	return(out)
-  }, error = function(err) {
-    print(paste("GLM_ERROR:  ",err))
-    
-    setwd(origin)
-  })
+    count = count + 1
+  }
 }
 
 run_glmNIX <- function(sim_folder, verbose=TRUE, args){
