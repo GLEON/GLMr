@@ -6,7 +6,7 @@
 #' @author Arianna Krinos
 #' @importFrom utils packageName
 remerge_binaries <- function() {
-  lib_path = system.file('extbin/macGLM/bin', package=packageName())
+  lib_path = system.file('extbin/macGLM/bin/', package=packageName())
   glm_path = system.file("exec/macGLM", package = packageName())
   files = list.files(lib_path)
   try ( system(paste0("install_name_tool -add_rpath ",lib_path, " ", 
