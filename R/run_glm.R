@@ -108,7 +108,9 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
       }
       
       setwd(origin)
-      return(out)
+	    if (count == 2) {
+      		return(out)
+            }
     }, error = function(err) {
       if (count != 2) {
       	print(paste("GLM_ERROR:  ",err))
