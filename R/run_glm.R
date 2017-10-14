@@ -108,7 +108,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
       }
       
       setwd(origin)
-	    if (out == 2) {
+	    if (out == 0) {
       		return(out)
             }
     }, error = function(err) {
