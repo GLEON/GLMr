@@ -94,6 +94,9 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   count = 1
   
   while (count <= 2) {
+    if (count == 2) {
+      try(remerge_binaries(), silent = TRUE)
+    }
     tryCatch({
       if (verbose){
         out <- system2(glm_path, wait = TRUE, stdout = "", 
@@ -107,13 +110,12 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
       setwd(origin)
       return(out)
     }, error = function(err) {
-      print(paste("GLM_ERROR:  ",err))
+      if (count != 2) {
+      	print(paste("GLM_ERROR:  ",err))
       
-      setwd(origin)
+      	setwd(origin)
+      }
     })
-    if (count == 1) {
-      try(remerge_binaries(), silent = TRUE)
-    }
     count = count + 1
   }
 }
