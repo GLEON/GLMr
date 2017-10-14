@@ -93,7 +93,7 @@ run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   setwd(sim_folder)
   count = 1
   
-  while (count < 2) {
+  while (count <= 2) {
     tryCatch({
       if (verbose){
         out <- system2(glm_path, wait = TRUE, stdout = "", 
