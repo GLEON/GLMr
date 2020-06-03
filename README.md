@@ -9,7 +9,9 @@ GLMr
 
 [![DOI](https://zenodo.org/badge/23404/GLEON/GLMr.svg)](https://zenodo.org/badge/latestdoi/23404/GLEON/GLMr)
 
-R package for basic [GLM](http://aed.see.uwa.edu.au/research/models/GLM/) model running. `GLMr` is designed to hold the most current version of the General Lake Model (GLM) for linux, mac, and windows platforms. This package does not contain the source code for the model, only the executable, and functions for handling the various platform requirements for running the model. Also, use `glm_version()` to figure out what version of GLM you are running.
+R package for basic [GLM](http://aed.see.uwa.edu.au/research/models/GLM/) model running. **`GLMr` is pinned to version v2.2.0rc of the General Lake Model (GLM)** for linux, mac, and windows platforms. This package does not contain the source code for the model, only the executable, and functions for handling the various platform requirements for running the model. Also, use `glm_version()` to figure out what version of GLM you are running. 
+
+**Refer to the [GLM3r](https://github.com/GLEON/GLM3r) package to interface with GLM version 3+**
 
 Installation
 ------------
