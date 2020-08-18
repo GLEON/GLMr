@@ -35,8 +35,7 @@ run_glm <- function(sim_folder = '.', verbose=TRUE, args=character()){
 		
 		return(run_glmWin(sim_folder, verbose, args))
 		
-	}else if(.Platform$pkgType == "mac.binary" || 
-					 	.Platform$pkgType == "mac.binary.mavericks"){
+	}else if(length(grep("mac", .Platform$pkgType, ignore.case = TRUE)) > 0){
     maj_v_number <- as.numeric(strsplit(
                       Sys.info()["release"][[1]],'.', fixed = TRUE)[[1]][1])
     if (maj_v_number < 13.0){
@@ -84,32 +83,43 @@ run_glmWin <- function(sim_folder, verbose = TRUE, args){
 
 run_glmOSx <- function(sim_folder, verbose = TRUE, args){
   lib_path <- system.file('extbin/macGLM/bin', package=packageName())
-  
   glm_path <- system.file('exec/macglm', package=packageName())
   
   # ship glm and libs to sim_folder
-  Sys.setenv(DYLD_FALLBACK_LIBRARY_PATH=lib_path)
+  #remerge_binaries() # tries to remerge binaries; if they are
+                     # already merged, nothing occurs
   
   origin <- getwd()
   setwd(sim_folder)
-
-  tryCatch({
-    if (verbose){
-      out <- system2(glm_path, wait = TRUE, stdout = "", 
-                     stderr = "", args = args)
-      
-    } else {
-      out <- system2(glm_path, wait = TRUE, stdout = NULL, 
-                     stderr = NULL, args=args)
+  count = 1
+  
+  while (count <= 2) {
+    if (count == 2) {
+      try(remerge_binaries(), silent = TRUE)
     }
-    
-    setwd(origin)
-	return(out)
-  }, error = function(err) {
-    print(paste("GLM_ERROR:  ",err))
-    
-    setwd(origin)
-  })
+    tryCatch({
+      if (verbose){
+        out <- system2(glm_path, wait = TRUE, stdout = "", 
+                       stderr = "", args = args)
+        
+      } else {
+        out <- system2(glm_path, wait = TRUE, stdout = NULL, 
+                       stderr = NULL, args=args)
+      }
+      
+      setwd(origin)
+	    if (out == 0) {
+      		return(out)
+            }
+    }, error = function(err) {
+      if (count != 1) {
+      	print(paste("GLM_ERROR:  ",err))
+      
+      	setwd(origin)
+      }
+    })
+    count = count + 1
+  }
 }
 
 run_glmNIX <- function(sim_folder, verbose=TRUE, args){
